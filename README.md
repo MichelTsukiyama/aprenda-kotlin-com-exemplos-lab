@@ -8,3 +8,13 @@ Desafio de Projeto criado para avaliação do conteúdo técnico explorado no re
 ```kotlin
 TODO("Crie uma solução em Koltin abstraindo esse domínio. O arquivo [desafio.kt] te ajudará 😉")
 ```
+
+-----------
+
+# Alterações no desafio
+
+- Finalização das Classes;
+- Criado Método para imprimir os inscritos no curso;
+- Foram instanciadas algumas classes na Main, para testar as classes e métodos, conforme print abaixo:
+
+  ![image](https://github.com/MichelTsukiyama/aprenda-kotlin-com-exemplos-lab/assets/83741590/9845c88a-79fa-4c8d-90f2-c572f4e342b3)
