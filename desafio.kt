@@ -1,21 +1,40 @@
-// [Template no Kotlin Playground](https://pl.kotl.in/WcteahpyN)
-
 enum class Nivel { BASICO, INTERMEDIARIO, DIFICIL }
 
-class Usuario
+data class Usuario(val id: Int, val cpf: String, var nome: String)
 
-data class ConteudoEducacional(var nome: String, val duracao: Int = 60)
+data class ConteudoEducacional(val id: Int, var nome: String, val duracao: Int = 60)
 
-data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) {
+data class Formacao(val id: Int, val nome: String, var conteudos: List<ConteudoEducacional>, val nivel: Nivel) {
 
     val inscritos = mutableListOf<Usuario>()
     
     fun matricular(usuario: Usuario) {
-        TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
+        inscritos.add(usuario)
+    }
+    
+    fun printInscritos(){
+        println("Inscritos na Formacao ${this.nome}")
+        this.inscritos.forEach{
+            println("Id: ${it.id}, CPF: ${it.cpf}, Nome: ${it.nome}")
+        }
+        println("Total de ${this.inscritos.count()} alunos inscritos")
     }
 }
 
 fun main() {
-    TODO("Analise as classes modeladas para este domínio de aplicação e pense em formas de evoluí-las.")
-    TODO("Simule alguns cenários de teste. Para isso, crie alguns objetos usando as classes em questão.")
+    val usuario_1 = Usuario(1, "12345678900", "Fulano");
+    val usuario_2 = Usuario(2, "98765432199", "Ciclano");
+    
+    val conteudos = listOf(
+        ConteudoEducacional(1, "Algoritmos I", 78),
+        ConteudoEducacional(2, "Android para iniciantes", 96)
+    )
+    
+    val formacao = Formacao(1, "Bootcamp Kotlin", conteudos, Nivel.BASICO)
+    
+    formacao.matricular(usuario_1)
+    formacao.matricular(usuario_2)
+    
+    formacao.printInscritos()
+    
 }
